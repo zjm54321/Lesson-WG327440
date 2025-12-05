@@ -1,0 +1,16 @@
+CompileFlags:
+    Add:
+        - -std=c2x
+        - -D__SDCC
+        - -DCLANGD # 用于激活 reg52.h 中的假定义
+        - -Wno-unknown-warning-option
+        - -Wno-main-return-type
+    Remove:
+        - --std-c99
+        - -mmcs51
+        - --opt-code-speed
+        - --opt-code-size
+        - --iram-size
+        - --xram-size
+        - --code-size
+    CompilationDatabase: ./build
