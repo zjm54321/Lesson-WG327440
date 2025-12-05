@@ -12,7 +12,7 @@ set_arch("mcs51")
 
 option("chip")
     -- 默认 8051
-    set_default("STC89")
+    set_default("STC15")
     set_showmenu(true)
     set_description("Select chip model")
     -- 可选值列表，必须与 stc51.h 中的宏一致
