@@ -4,12 +4,12 @@
 #include <compiler.h>
 /* for 1 or 2 us, use NOP() directly */
 
-inline void delay5us() //@11.0592MHz
+inline void delay5us(void) //@11.0592MHz
 {
     NOP(); // seems need run an inst.
 }
 
-inline void delay10us() //@11.0592MHz
+inline void delay10us(void) //@11.0592MHz
 {
     unsigned char i;
 
@@ -18,7 +18,7 @@ inline void delay10us() //@11.0592MHz
         ;
 }
 
-inline void delay20us() //@11.0592MHz
+inline void delay20us(void) //@11.0592MHz
 {
     unsigned char i;
 
@@ -28,7 +28,7 @@ inline void delay20us() //@11.0592MHz
         ;
 }
 
-inline void delay50us() //@11.0592MHz
+inline void delay50us(void) //@11.0592MHz
 {
     unsigned char i;
 
@@ -38,7 +38,7 @@ inline void delay50us() //@11.0592MHz
         ;
 }
 
-inline void delay100us() //@11.0592MHz
+inline void delay100us(void) //@11.0592MHz
 {
     unsigned char i;
 
@@ -48,7 +48,7 @@ inline void delay100us() //@11.0592MHz
         ;
 }
 
-inline void delay200us() //@11.0592MHz
+inline void delay200us(void) //@11.0592MHz
 {
     unsigned char i;
 
@@ -58,7 +58,7 @@ inline void delay200us() //@11.0592MHz
         ;
 }
 
-inline void delay500us() //@11.0592MHz
+inline void delay500us(void) //@11.0592MHz
 {
     unsigned char i;
 
@@ -68,7 +68,7 @@ inline void delay500us() //@11.0592MHz
         ;
 }
 
-inline void delay1ms() //@11.0592MHz
+inline void delay1ms(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -81,7 +81,7 @@ inline void delay1ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay2ms() //@11.0592MHz
+inline void delay2ms(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -94,7 +94,7 @@ inline void delay2ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay5ms() //@11.0592MHz
+inline void delay5ms(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -106,7 +106,7 @@ inline void delay5ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay10ms() //@11.0592MHz
+inline void delay10ms(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -118,7 +118,7 @@ inline void delay10ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay20ms() //@11.0592MHz
+inline void delay20ms(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -130,7 +130,7 @@ inline void delay20ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay50ms() //@11.0592MHz
+inline void delay50ms(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -142,7 +142,7 @@ inline void delay50ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay100ms() //@11.0592MHz
+inline void delay100ms(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -154,7 +154,7 @@ inline void delay100ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay200ms() //@11.0592MHz
+inline void delay200ms(void) //@11.0592MHz
 {
     unsigned char i, j, k;
 
@@ -170,7 +170,7 @@ inline void delay200ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay500ms() //@11.0592MHz
+inline void delay500ms(void) //@11.0592MHz
 {
     unsigned char i, j, k;
 
@@ -186,7 +186,7 @@ inline void delay500ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay1000ms() //@11.0592MHz
+inline void delay1000ms(void) //@11.0592MHz
 {
     unsigned char i, j, k;
 
@@ -207,12 +207,12 @@ inline void delay1000ms() //@11.0592MHz
     defined(STC15F204EA)
 #include <compiler.h>
 
-inline void delay1us() //@11.0592MHz
+inline void delay1us(void) //@11.0592MHz
 {
     NOP();
 }
 
-inline void delay2us() //@11.0592MHz
+inline void delay2us(void) //@11.0592MHz
 {
     unsigned char i;
 
@@ -223,7 +223,7 @@ inline void delay2us() //@11.0592MHz
         ;
 }
 
-inline void delay5us() //@11.0592MHz
+inline void delay5us(void) //@11.0592MHz
 {
     unsigned char i;
 
@@ -235,7 +235,7 @@ inline void delay5us() //@11.0592MHz
         ;
 }
 
-inline void delay10us() //@11.0592MHz
+inline void delay10us(void) //@11.0592MHz
 {
     unsigned char i;
 
@@ -247,7 +247,7 @@ inline void delay10us() //@11.0592MHz
         ;
 }
 
-inline void delay20us() //@11.0592MHz
+inline void delay20us(void) //@11.0592MHz
 {
     unsigned char i;
 
@@ -257,7 +257,7 @@ inline void delay20us() //@11.0592MHz
         ;
 }
 
-inline void delay50us() //@11.0592MHz
+inline void delay50us(void) //@11.0592MHz
 {
     unsigned char i;
 
@@ -267,7 +267,7 @@ inline void delay50us() //@11.0592MHz
         ;
 }
 
-inline void delay100us() //@11.0592MHz
+inline void delay100us(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -279,7 +279,7 @@ inline void delay100us() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay200us() //@11.0592MHz
+inline void delay200us(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -293,7 +293,7 @@ inline void delay200us() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay500us() //@11.0592MHz
+inline void delay500us(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -305,7 +305,7 @@ inline void delay500us() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay1ms() //@11.0592MHz
+inline void delay1ms(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -318,7 +318,7 @@ inline void delay1ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay2ms() //@11.0592MHz
+inline void delay2ms(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -330,7 +330,7 @@ inline void delay2ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay5ms() //@11.0592MHz
+inline void delay5ms(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -344,7 +344,7 @@ inline void delay5ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay10ms() //@11.0592MHz
+inline void delay10ms(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -358,7 +358,7 @@ inline void delay10ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay20ms() //@11.0592MHz
+inline void delay20ms(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -371,7 +371,7 @@ inline void delay20ms() //@11.0592MHz
             ;
     } while (--i);
 }
-inline void delay50ms() //@11.0592MHz
+inline void delay50ms(void) //@11.0592MHz
 {
     unsigned char i, j, k;
 
@@ -386,7 +386,7 @@ inline void delay50ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay100ms() //@11.0592MHz
+inline void delay100ms(void) //@11.0592MHz
 {
     unsigned char i, j, k;
 
@@ -401,7 +401,7 @@ inline void delay100ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay200ms() //@11.0592MHz
+inline void delay200ms(void) //@11.0592MHz
 {
     unsigned char i, j, k;
 
@@ -416,7 +416,7 @@ inline void delay200ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay500ms() //@11.0592MHz
+inline void delay500ms(void) //@11.0592MHz
 {
     unsigned char i, j, k;
 
@@ -431,7 +431,7 @@ inline void delay500ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay1000ms() //@11.0592MHz
+inline void delay1000ms(void) //@11.0592MHz
 {
     unsigned char i, j, k;
 
@@ -447,14 +447,14 @@ inline void delay1000ms() //@11.0592MHz
 }
 #elif defined(STC15)
 #include <compiler.h>
-inline void delay1us() //@11.0592MHz
+inline void delay1us(void) //@11.0592MHz
 {
     NOP();
     NOP();
     NOP();
 }
 
-inline void delay2us() //@11.0592MHz
+inline void delay2us(void) //@11.0592MHz
 {
     unsigned char i;
 
@@ -463,7 +463,7 @@ inline void delay2us() //@11.0592MHz
         ;
 }
 
-inline void delay5us() //@11.0592MHz
+inline void delay5us(void) //@11.0592MHz
 {
     unsigned char i;
 
@@ -473,7 +473,7 @@ inline void delay5us() //@11.0592MHz
         ;
 }
 
-inline void delay10us() //@11.0592MHz
+inline void delay10us(void) //@11.0592MHz
 {
     unsigned char i;
 
@@ -483,7 +483,7 @@ inline void delay10us() //@11.0592MHz
         ;
 }
 
-inline void delay20us() //@11.0592MHz
+inline void delay20us(void) //@11.0592MHz
 {
     unsigned char i;
 
@@ -495,7 +495,7 @@ inline void delay20us() //@11.0592MHz
         ;
 }
 
-inline void delay50us() //@11.0592MHz
+inline void delay50us(void) //@11.0592MHz
 {
     unsigned char i;
 
@@ -507,7 +507,7 @@ inline void delay50us() //@11.0592MHz
         ;
 }
 
-inline void delay100us() //@11.0592MHz
+inline void delay100us(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -521,7 +521,7 @@ inline void delay100us() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay200us() //@11.0592MHz
+inline void delay200us(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -533,7 +533,7 @@ inline void delay200us() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay500us() //@11.0592MHz
+inline void delay500us(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -547,7 +547,7 @@ inline void delay500us() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay1ms() //@11.0592MHz
+inline void delay1ms(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -562,7 +562,7 @@ inline void delay1ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay2ms() //@11.0592MHz
+inline void delay2ms(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -576,7 +576,7 @@ inline void delay2ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay5ms() //@11.0592MHz
+inline void delay5ms(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -588,7 +588,7 @@ inline void delay5ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay10ms() //@11.0592MHz
+inline void delay10ms(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -600,7 +600,7 @@ inline void delay10ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay20ms() //@11.0592MHz
+inline void delay20ms(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -611,7 +611,7 @@ inline void delay20ms() //@11.0592MHz
             ;
     } while (--i);
 }
-inline void delay50ms() //@11.0592MHz
+inline void delay50ms(void) //@11.0592MHz
 {
     unsigned char i, j, k;
 
@@ -628,7 +628,7 @@ inline void delay50ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay100ms() //@11.0592MHz
+inline void delay100ms(void) //@11.0592MHz
 {
     unsigned char i, j, k;
 
@@ -645,7 +645,7 @@ inline void delay100ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay200ms() //@11.0592MHz
+inline void delay200ms(void) //@11.0592MHz
 {
     unsigned char i, j, k;
 
@@ -662,7 +662,7 @@ inline void delay200ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay500ms() //@11.0592MHz
+inline void delay500ms(void) //@11.0592MHz
 {
     unsigned char i, j, k;
 
@@ -679,7 +679,7 @@ inline void delay500ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay1000ms() //@11.0592MHz
+inline void delay1000ms(void) //@11.0592MHz
 {
     unsigned char i, j, k;
 
@@ -699,7 +699,7 @@ inline void delay1000ms() //@11.0592MHz
     defined(STC8H) || defined(STC8A8K64D4)
 #include <compiler.h>
 
-inline void delay1us() //@11.0592MHz
+inline void delay1us(void) //@11.0592MHz
 {
     unsigned char i;
 
@@ -710,7 +710,7 @@ inline void delay1us() //@11.0592MHz
         ;
 }
 
-inline void delay2us() //@11.0592MHz
+inline void delay2us(void) //@11.0592MHz
 {
     unsigned char i;
 
@@ -720,7 +720,7 @@ inline void delay2us() //@11.0592MHz
         ;
 }
 
-inline void delay5us() //@11.0592MHz
+inline void delay5us(void) //@11.0592MHz
 {
     unsigned char i;
 
@@ -730,7 +730,7 @@ inline void delay5us() //@11.0592MHz
         ;
 }
 
-inline void delay10us() //@11.0592MHz
+inline void delay10us(void) //@11.0592MHz
 {
     unsigned char i;
 
@@ -739,7 +739,7 @@ inline void delay10us() //@11.0592MHz
         ;
 }
 
-inline void delay20us() //@11.0592MHz
+inline void delay20us(void) //@11.0592MHz
 {
     unsigned char i;
 
@@ -750,7 +750,7 @@ inline void delay20us() //@11.0592MHz
         ;
 }
 
-inline void delay50us() //@11.0592MHz
+inline void delay50us(void) //@11.0592MHz
 {
     unsigned char i;
 
@@ -760,7 +760,7 @@ inline void delay50us() //@11.0592MHz
         ;
 }
 
-inline void delay100us() //@11.0592MHz
+inline void delay100us(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -772,7 +772,7 @@ inline void delay100us() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay200us() //@11.0592MHz
+inline void delay200us(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -784,7 +784,7 @@ inline void delay200us() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay500us() //@11.0592MHz
+inline void delay500us(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -798,7 +798,7 @@ inline void delay500us() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay1ms() //@11.0592MHz
+inline void delay1ms(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -810,7 +810,7 @@ inline void delay1ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay2ms() //@11.0592MHz
+inline void delay2ms(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -822,7 +822,7 @@ inline void delay2ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay5ms() //@11.0592MHz
+inline void delay5ms(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -836,7 +836,7 @@ inline void delay5ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay10ms() //@11.0592MHz
+inline void delay10ms(void) //@11.0592MHz
 {
     unsigned char i, j;
 
@@ -850,7 +850,7 @@ inline void delay10ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay20ms() //@11.0592MHz
+inline void delay20ms(void) //@11.0592MHz
 {
     unsigned char i, j, k;
 
@@ -865,7 +865,7 @@ inline void delay20ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay50ms() //@11.0592MHz
+inline void delay50ms(void) //@11.0592MHz
 {
     unsigned char i, j, k;
 
@@ -880,7 +880,7 @@ inline void delay50ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay100ms() //@11.0592MHz
+inline void delay100ms(void) //@11.0592MHz
 {
     unsigned char i, j, k;
 
@@ -896,7 +896,7 @@ inline void delay100ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay200ms() //@11.0592MHz
+inline void delay200ms(void) //@11.0592MHz
 {
     unsigned char i, j, k;
 
@@ -911,7 +911,7 @@ inline void delay200ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay500ms() //@11.0592MHz
+inline void delay500ms(void) //@11.0592MHz
 {
     unsigned char i, j, k;
 
@@ -926,7 +926,7 @@ inline void delay500ms() //@11.0592MHz
     } while (--i);
 }
 
-inline void delay1000ms() //@11.0592MHz
+inline void delay1000ms(void) //@11.0592MHz
 {
     unsigned char i, j, k;
 

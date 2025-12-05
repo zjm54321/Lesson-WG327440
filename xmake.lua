@@ -39,7 +39,7 @@ target("mcs51")
     set_kind("binary")
     set_extension(".ihx")
     add_deps("lib")
-    add_files("src/**.c")
+    add_files("src/main.c")
     add_defines(get_config("chip"))
     -- SDCC 相关优化/链接选项（按需启用/调整）
     add_ldflags("--model-small")
