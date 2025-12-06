@@ -39,89 +39,21 @@ typedef struct Time {
 void nixie_display_setting(Time_t time, SettingState_t setting_state);
 void nixie_display_clock(Time_t time);
 void alarming_off(void);
+void key_scan(void);
 
+// 设置全局变量
 static volatile State_t state = Setting;
 static volatile SettingState_t setting_state = SetSecondsUnits;
 static volatile Time_t time_count = {0, 0, 0};
 static volatile Time_t alarm_time = {0, 0, 0};
 
-uint32_t main(void) {
-
+int32_t main(void) {
     timer0_init_10ms();
     timer1_init_10ms();
     EA = 1; // 全局中断使能
 
     for (;;) {
-        // 选择位
-        KEY_PRESSED(P33, {
-            if (state == Setting) {
-                if (setting_state == SetHoursTens)
-                    setting_state = SetSecondsUnits;
-                else
-                    setting_state++;
-            } else if (state == Alarming) {
-                alarming_off();
-            } else {
-                state = Setting;
-            }
-        });
-        // 设置时间
-        KEY_PRESSED(P32, {
-            if (state == Setting) {
-                switch (setting_state) {
-                case SetSecondsUnits:
-                    time_count.seconds = (time_count.seconds / 10) * 10 +
-                                         (time_count.seconds + 1) % 10;
-                    break;
-                case SetSecondsTens:
-                    time_count.seconds =
-                        (time_count.seconds % 10) +
-                        (((time_count.seconds / 10) + 1) % 6) * 10;
-                    break;
-                case SetMinutesUnits:
-                    time_count.minutes = (time_count.minutes / 10) * 10 +
-                                         (time_count.minutes + 1) % 10;
-                    break;
-                case SetMinutesTens:
-                    time_count.minutes =
-                        (time_count.minutes % 10) +
-                        (((time_count.minutes / 10) + 1) % 6) * 10;
-                    break;
-                case SetHoursUnits:
-                    time_count.hours = (time_count.hours / 10) * 10 +
-                                       (time_count.hours + 1) % 10;
-                    if (time_count.hours >= 24)
-                        time_count.hours = time_count.hours % 10;
-                    break;
-                case SetHoursTens:
-                    time_count.hours = (time_count.hours % 10) +
-                                       (((time_count.hours / 10) + 1) % 3) * 10;
-                    if (time_count.hours >= 24)
-                        time_count.hours = time_count.hours % 10;
-                    break;
-                }
-            } else if (state == Alarming) {
-                alarming_off();
-            }
-        });
-        KEY_PRESSED(P31, {
-            if (state == Setting) {
-                // 完成设置，写入 DS1302
-                ds1302_set_time(time_count.hours, time_count.minutes,
-                                time_count.seconds);
-                state = Stopwatch;
-            } else if (state == Alarming) {
-                alarming_off();
-            }
-        });
-        KEY_PRESSED(P30, {
-            if (state == Setting) {
-                alarm_time = time_count;
-                state = Clock;
-            } else if (state == Alarming) {
-                alarming_off();
-            }
-        });
+        key_scan();
         if (state == Alarming) {
             EA = 0;
             P2 = (P2 & 0x1F) | 0xA0;
@@ -201,7 +133,7 @@ void timer1_isr(void) interrupt(3) {
     }
 }
 
-void alarming_off(void) {
+inline void alarming_off(void) {
     state = Setting;
     setting_state = SetSecondsUnits;
     time_count.hours = 0;
@@ -215,4 +147,74 @@ void alarming_off(void) {
     P0 = 0xFF;
 
     EA = 1;
+}
+
+inline void key_scan(void) {
+    KEY_PRESSED(P33, {
+        if (state == Setting) {
+            if (setting_state == SetHoursTens)
+                setting_state = SetSecondsUnits;
+            else
+                setting_state++;
+        } else if (state == Alarming) {
+            alarming_off();
+        } else {
+            state = Setting;
+        }
+    });
+    // 设置时间
+    KEY_PRESSED(P32, {
+        if (state == Setting) {
+            switch (setting_state) {
+            case SetSecondsUnits:
+                time_count.seconds = (time_count.seconds / 10) * 10 +
+                                     (time_count.seconds + 1) % 10;
+                break;
+            case SetSecondsTens:
+                time_count.seconds = (time_count.seconds % 10) +
+                                     (((time_count.seconds / 10) + 1) % 6) * 10;
+                break;
+            case SetMinutesUnits:
+                time_count.minutes = (time_count.minutes / 10) * 10 +
+                                     (time_count.minutes + 1) % 10;
+                break;
+            case SetMinutesTens:
+                time_count.minutes = (time_count.minutes % 10) +
+                                     (((time_count.minutes / 10) + 1) % 6) * 10;
+                break;
+            case SetHoursUnits:
+                time_count.hours =
+                    (time_count.hours / 10) * 10 + (time_count.hours + 1) % 10;
+                if (time_count.hours >= 24)
+                    time_count.hours = time_count.hours % 10;
+                break;
+            case SetHoursTens:
+                time_count.hours = (time_count.hours % 10) +
+                                   (((time_count.hours / 10) + 1) % 3) * 10;
+                if (time_count.hours >= 24)
+                    time_count.hours = time_count.hours % 10;
+                break;
+            }
+        } else if (state == Alarming) {
+            alarming_off();
+        }
+    });
+    KEY_PRESSED(P31, {
+        if (state == Setting) {
+            // 完成设置，写入 DS1302
+            ds1302_set_time(time_count.hours, time_count.minutes,
+                            time_count.seconds);
+            state = Stopwatch;
+        } else if (state == Alarming) {
+            alarming_off();
+        }
+    });
+    KEY_PRESSED(P30, {
+        if (state == Setting) {
+            alarm_time = time_count;
+            state = Clock;
+        } else if (state == Alarming) {
+            alarming_off();
+        }
+    });
 }
