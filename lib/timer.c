@@ -19,3 +19,13 @@ void timer1_init_10ms(void) {
     TR1 = 1;      // 定时器1开始计时
     ET1 = 1;      // 使能定时器1中断
 }
+
+
+void timer2_init_1ms(void)
+{
+	AUXR |= 0x04;			//定时器时钟1T模式
+	T2L = 0xCD;				//设置定时初始值
+	T2H = 0xD4;				//设置定时初始值
+	AUXR |= 0x10;			//定时器2开始计时
+	IE2 |= 0x04;			//使能定时器2中断
+}

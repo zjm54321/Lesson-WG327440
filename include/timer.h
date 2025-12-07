@@ -9,3 +9,4 @@
 
 void timer0_init_10ms(void);
 void timer1_init_10ms(void);
+void timer2_init_1ms(void);

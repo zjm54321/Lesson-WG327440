@@ -10,9 +10,7 @@
         if ((pin) == 0) {                                                      \
             delay10ms();                                                       \
             if ((pin) == 0) {                                                  \
-                while ((pin) == 0)                                             \
-                    ;                                                          \
-                BODY                                                           \
+                BODY while ((pin) == 0);                                       \
             }                                                                  \
         }                                                                      \
     } while (0)
