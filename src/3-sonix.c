@@ -1,6 +1,6 @@
 /**
  * @author zjm54321
- * @brief 电子钟
+ * @brief 超声波测距机
  */
 
 #include <utility.h>
